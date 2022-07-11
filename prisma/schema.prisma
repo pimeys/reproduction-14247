@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgres://postgres:prisma@localhost:5437/postgres"
+}
+
+model Table {
+  id  String   @id
+  arr String[]
+
+  @@index([arr], type: Gin)
+}
